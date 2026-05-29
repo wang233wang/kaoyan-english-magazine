@@ -176,7 +176,7 @@ function readFullAloud() {
   readPara(0)
 }
 
-function readPara(i) {
+async function readPara(i) {
   if (readingCancelled) return
   const paras = paragraphs.value
   if (i >= paras.length) {
@@ -194,7 +194,7 @@ function readPara(i) {
   u.lang = 'en-US'
   u.rate = 0.85
   u.pitch = 1
-  const voice = getBestVoice()
+  const voice = await getBestVoice()
   if (voice) u.voice = voice
   u.onend = () => { if (!readingCancelled) readPara(i + 1) }
   u.onerror = () => { if (!readingCancelled) readPara(i + 1) }

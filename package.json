@@ -1,0 +1,21 @@
+{
+  "name": "kaoyan-english-magazine",
+  "version": "1.0.0",
+  "description": "考研英语外刊精读网站 - 每日自动更新外刊，支持中英互译和单词发音",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && node index.js",
+    "client": "cd client && npm run dev",
+    "fetch": "cd server && node scripts/fetchArticles.js",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "build:client": "cd client && npm install && npm run build",
+    "start": "node server/index.js",
+    "build": "npm run build:client && cd server && npm install",
+    "postinstall": "cd server && npm install"
+  },
+  "dependencies": {
+    "@isomorphic-git/lightning-fs": "^4.6.2",
+    "concurrently": "^8.2.2",
+    "isomorphic-git": "^1.38.3"
+  }
+}
